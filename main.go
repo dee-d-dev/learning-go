@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	var eventName = "Go conference"
@@ -26,25 +29,67 @@ func main() {
 	// fmt.Printf("Booked at %v", userAddress)
 
 	//booking a ticket
-	var firstName string
-	var lastName string
-	var email string
-	var ticketsBooked uint
-	var availableTickets uint= 50
+	// var firstName string
+	// var lastName string
+	// var email string
+	// var ticketsBooked uint
+	// var availableTickets uint= 50
 
-	println("Input first name:")
-	fmt.Scan(&firstName)
-	println("Input last name:")
-	fmt.Scan(&lastName)
-	println("Input email:")
-	fmt.Scan(&email)
-	println("input number of tickets:")
-	fmt.Scan(&ticketsBooked)
+	// println("Input first name:")
+	// fmt.Scan(&firstName)
+	// println("Input last name:")
+	// fmt.Scan(&lastName)
+	// println("Input email:")
+	// fmt.Scan(&email)
+	// println("input number of tickets:")
+	// fmt.Scan(&ticketsBooked)
 
-	fmt.Printf("Hi %v %v, thanks for buying %v tickets, payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
+	// fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
 
-	availableTickets = availableTickets - ticketsBooked
-	fmt.Printf("only %v tickets remaining for %v", availableTickets, eventName)
+	// availableTickets = availableTickets - ticketsBooked
+	// fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
+
+	//Arrays
+	var bookings  []string
+	// bookings = append(bookings, "Adedotun")
+	// fmt.Printf("The whole array is: %v\n", bookings)
+	// fmt.Printf("The array length is: %v\n", len(bookings))
+
+	//loop
+	for{
+		var firstName string
+		var lastName string
+		var email string
+		var ticketsBooked uint
+		var availableTickets uint= 50
+
+		println("Input first name:")
+		fmt.Scan(&firstName)
+		println("Input last name:")
+		fmt.Scan(&lastName)
+		println("Input email:")
+		fmt.Scan(&email)
+		println("input number of tickets:")
+		fmt.Scan(&ticketsBooked)
+
+		fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
+
+		availableTickets = availableTickets - ticketsBooked
+		fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
+
+		var bookings = append(bookings, firstName + " "+ lastName)
+
+		firstnames := []string{}
+
+		for _, booking := range bookings{
+			var names = strings.Fields(booking)
+
+			firstnames = append(firstnames,names[0])
+		}
+		fmt.Printf("These are the first names of booking: %v\n", firstnames)
+	}
+
+	
 
 
 }
