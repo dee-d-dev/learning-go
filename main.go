@@ -77,7 +77,7 @@ func main() {
 		availableTickets = availableTickets - ticketsBooked
 		fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
 
-		var bookings = append(bookings, firstName + " "+ lastName)
+		bookings = append(bookings, firstName + " "+ lastName)
 
 		firstnames := []string{}
 
@@ -87,6 +87,9 @@ func main() {
 			firstnames = append(firstnames,names[0])
 		}
 		fmt.Printf("These are the first names of booking: %v\n", firstnames)
+
+		//IF STATEMENTS
+		
 	}
 
 	
