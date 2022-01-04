@@ -72,33 +72,38 @@ func main() {
 		println("input number of tickets:")
 		fmt.Scan(&ticketsBooked)
 
-		if ticketsBooked > availableTickets {
-			fmt.Printf("Only %v tickets available, you can't book %v tickets\n", availableTickets, ticketsBooked)
-			break
-		}
-		fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
+		isValidEmail := strings.Contains(email, "@")
 
-		availableTickets = availableTickets - ticketsBooked
-		fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
-
-		bookings = append(bookings, firstName + " "+ lastName)
-
-		firstnames := []string{}
-
-		for _, booking := range bookings{
-			var names = strings.Fields(booking)
-
-			firstnames = append(firstnames,names[0])
-		}
-		fmt.Printf("These are the first names of booking: %v\n", firstnames)
-
+		if isValidEmail {
+			fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
+	
+			availableTickets = availableTickets - ticketsBooked
+			fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
+	
+			bookings = append(bookings, firstName + " "+ lastName)
+	
+			firstnames := []string{}
+	
+			for _, booking := range bookings{
+				var names = strings.Fields(booking)
+	
+				firstnames = append(firstnames,names[0])
+			}
+			fmt.Printf("These are the first names of booking: %v\n", firstnames)
 		//IF STATEMENTS
-		noAvailableTicket := availableTickets == 0
-		if noAvailableTicket{
-			fmt.Println("Our tickets are sold out at the moment, please check back next week")
-			break
+
+			noAvailableTicket := availableTickets == 0
+			if noAvailableTicket{
+				fmt.Println("Our tickets are sold out at the moment, please check back next week")
+				break
+			}
+		} else{
+			if !isValidEmail{
+
+				fmt.Printf("your email input is invalid\n")
+			}
+			continue
 		}
-		
 	}
 
 	
