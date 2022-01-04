@@ -7,7 +7,8 @@ import (
 
 func main() {
 	var eventName = "Go conference"
-	// var eventTickets uint = 100
+	var eventTickets uint = 100
+	greetUser(eventName, eventTickets)
 	
 
 	// fmt.Printf("eventName is type %T, eventTickets is type %T\n", eventName, eventTickets)
@@ -104,9 +105,22 @@ func main() {
 			}
 			continue
 		}
+
+		//SWITCH STATEMENT
+
+		// city:= "Nigeria"
+		// switch city{
+		// 	case "Nigeria":
+				//run code logic for Nigeria
+			// case "London":
+				//run code logic for london
+			// default:
+				//run default code logic
+		// }
 	}
+}
 
-	
-
+func greetUser(eventName string, eventTickets uint ){
+	fmt.Printf("Welcome to our %v, we have %v available tickets to book\n", eventName, eventTickets)
 
 }
