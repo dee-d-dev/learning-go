@@ -10,6 +10,7 @@ func main() {
 	var eventTickets uint = 100
 	greetUser(eventName, eventTickets)
 	
+	
 
 	// fmt.Printf("eventName is type %T, eventTickets is type %T\n", eventName, eventTickets)
 	// fmt.Printf("hello people, Only %v is available\n", eventName)
@@ -56,6 +57,8 @@ func main() {
 	// fmt.Printf("The whole array is: %v\n", bookings)
 	// fmt.Printf("The array length is: %v\n", len(bookings))
 
+	
+	
 	//loop
 	for{
 		var firstName string
@@ -63,7 +66,10 @@ func main() {
 		var email string
 		var ticketsBooked uint
 		var availableTickets uint= 50
+		firstnames:=returnFirstNames(bookings, firstName, lastName)
+		fmt.Printf("These are the first names of booking: %v\n", firstnames)
 
+		
 		println("Input first name:")
 		fmt.Scan(&firstName)
 		println("Input last name:")
@@ -75,22 +81,14 @@ func main() {
 
 		isValidEmail := strings.Contains(email, "@")
 
+
 		if isValidEmail {
 			fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
 	
 			availableTickets = availableTickets - ticketsBooked
 			fmt.Printf("only %v tickets remaining for %v\n", availableTickets, eventName)
 	
-			bookings = append(bookings, firstName + " "+ lastName)
-	
-			firstnames := []string{}
-	
-			for _, booking := range bookings{
-				var names = strings.Fields(booking)
-	
-				firstnames = append(firstnames,names[0])
-			}
-			fmt.Printf("These are the first names of booking: %v\n", firstnames)
+			
 		//IF STATEMENTS
 
 			noAvailableTicket := availableTickets == 0
@@ -123,4 +121,17 @@ func main() {
 func greetUser(eventName string, eventTickets uint ){
 	fmt.Printf("Welcome to our %v, we have %v available tickets to book\n", eventName, eventTickets)
 
+}
+
+func returnFirstNames(bookings []string, firstName string, lastName string) []string{
+	bookings = append(bookings, firstName + " "+ lastName)
+		
+	firstnames := []string{}
+	
+	for _, booking := range bookings{
+		var names = strings.Fields(booking)
+		
+		firstnames = append(firstnames,names[0])
+	}
+	return firstnames
 }
