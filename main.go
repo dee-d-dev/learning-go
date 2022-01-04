@@ -72,6 +72,10 @@ func main() {
 		println("input number of tickets:")
 		fmt.Scan(&ticketsBooked)
 
+		if ticketsBooked > availableTickets {
+			fmt.Printf("Only %v tickets available, you can't book %v tickets\n", availableTickets, ticketsBooked)
+			break
+		}
 		fmt.Printf("Hi %v %v, thanks for buying %v tickets,a payment receipt will be sent your mail %v\n", firstName, lastName, ticketsBooked, email)
 
 		availableTickets = availableTickets - ticketsBooked
@@ -89,6 +93,11 @@ func main() {
 		fmt.Printf("These are the first names of booking: %v\n", firstnames)
 
 		//IF STATEMENTS
+		noAvailableTicket := availableTickets == 0
+		if noAvailableTicket{
+			fmt.Println("Our tickets are sold out at the moment, please check back next week")
+			break
+		}
 		
 	}
 
